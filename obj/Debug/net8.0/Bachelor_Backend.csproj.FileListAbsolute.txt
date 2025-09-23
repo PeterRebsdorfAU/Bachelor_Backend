@@ -33,3 +33,4 @@ C:\Users\pete9\OneDrive\Skrivebord\bachelor\Bachelor_Backend\Bachelor_Backend\ob
 C:\Users\pete9\OneDrive\Skrivebord\bachelor\Bachelor_Backend\Bachelor_Backend\obj\Debug\net8.0\Bachelor_Backend.pdb
 C:\Users\pete9\OneDrive\Skrivebord\bachelor\Bachelor_Backend\Bachelor_Backend\obj\Debug\net8.0\Bachelor_Backend.genruntimeconfig.cache
 C:\Users\pete9\OneDrive\Skrivebord\bachelor\Bachelor_Backend\Bachelor_Backend\obj\Debug\net8.0\ref\Bachelor_Backend.dll
+C:\Users\pete9\OneDrive\Skrivebord\bachelor\Bachelor_Backend\Bachelor_Backend\obj\Debug\net8.0\Bachelor_Backend.sourcelink.json
