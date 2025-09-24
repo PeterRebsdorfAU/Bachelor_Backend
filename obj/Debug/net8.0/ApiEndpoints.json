@@ -1,5 +1,31 @@
 [
   {
+    "ContainingType": "Bachelor_Backend.Controllers.ChecklistController",
+    "Method": "GetChecklist",
+    "RelativePath": "api/Checklist/{bundleId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bundleId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Bachelor_Backend.Models.ChecklistResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Bachelor_Backend.Controllers.ReleaseBundlesController",
     "Method": "Get",
     "RelativePath": "api/ReleaseBundles",
