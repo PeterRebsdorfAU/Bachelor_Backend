@@ -39,9 +39,17 @@ namespace Bachelor_Backend.Controllers
             return Ok(bundle);
         }
 
+        // Create Release bundle
         [HttpPost]
         public ActionResult<ReleaseBundle> Create([FromBody] ReleaseBundle newBundle)
         {
+            // Log som JSON i konsollen
+            Console.WriteLine(" Received new bundle:");
+            Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(newBundle, new System.Text.Json.JsonSerializerOptions
+            {
+                WriteIndented = true
+            }));
+
             if (string.IsNullOrWhiteSpace(newBundle.Name))
                 return BadRequest("Bundle name is required.");
 
@@ -54,5 +62,23 @@ namespace Bachelor_Backend.Controllers
 
             return CreatedAtAction(nameof(GetById), new { id = newBundle.Id }, newBundle);
         }
+
+        // Release existing bundle
+        [HttpPost("{id}/release")]
+        public ActionResult<ReleaseBundle> Release(int id)
+        {
+            var bundle = Bundles.FirstOrDefault(b => b.Id == id);
+            if (bundle == null)
+                return NotFound();
+
+            if (bundle.Status == "RELEASED")
+                return BadRequest("Bundle is already released.");
+
+            bundle.Status = "RELEASED";
+            bundle.ReleaseDate = DateTime.UtcNow.ToString("yyyy-MM-dd");
+
+            return Ok(bundle);
+        }
+
     }
 }

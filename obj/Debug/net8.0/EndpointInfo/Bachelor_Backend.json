@@ -169,6 +169,46 @@
         }
       }
     },
+    "/api/ReleaseBundles/{id}/release": {
+      "post": {
+        "tags": [
+          "ReleaseBundles"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleaseBundle"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleaseBundle"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleaseBundle"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Scope/{bundleId}": {
       "get": {
         "tags": [

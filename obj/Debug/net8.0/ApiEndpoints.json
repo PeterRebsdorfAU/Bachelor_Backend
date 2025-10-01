@@ -98,6 +98,32 @@
     ]
   },
   {
+    "ContainingType": "Bachelor_Backend.Controllers.ReleaseBundlesController",
+    "Method": "Release",
+    "RelativePath": "api/ReleaseBundles/{id}/release",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Bachelor_Backend.Models.ReleaseBundle",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Bachelor_Backend.Controllers.ScopeController",
     "Method": "GetScope",
     "RelativePath": "api/Scope/{bundleId}",
