@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Bachelor_Backend.Models;
 
 namespace Bachelor_Backend.Controllers
 {
@@ -6,41 +7,98 @@ namespace Bachelor_Backend.Controllers
     [Route("api/[controller]")]
     public class ScopeController : ControllerBase
     {
-        // Dummy systems per bundle
-        private static readonly Dictionary<int, List<string>> BundleSystems = new()
-        {
-            { 1, new List<string> { "Task System", "System 2", "System 3" } },
-            { 2, new List<string> { "System X", "System Y" } },
-            { 3, new List<string> { "Legacy System" } }
-        };
+        private static readonly List<ReleaseBundle> Bundles = ReleaseBundlesControllerAccessor.Bundles;
 
         [HttpGet("{bundleId}")]
-        public ActionResult<IEnumerable<string>> GetSystems(int bundleId)
+        public ActionResult<BundleScope> GetScope(int bundleId)
         {
-            if (!BundleSystems.TryGetValue(bundleId, out var systems))
-                return NotFound(new { message = $"No systems found for bundle {bundleId}" });
+            var bundle = Bundles.FirstOrDefault(b => b.Id == bundleId);
+            if (bundle == null) return NotFound();
 
-            return Ok(systems);
+            return Ok(new BundleScope
+            {
+                BundleId = bundle.Id,
+                BundleName = bundle.Name,
+                Systems = bundle.Systems ?? new List<SystemEntry>()
+            });
         }
 
         [HttpPost("{bundleId}")]
-        public ActionResult AddSystem(int bundleId, [FromBody] string system)
+        public ActionResult<BundleScope> AddSystem(int bundleId, [FromBody] ScopeModel request)
         {
-            if (!BundleSystems.ContainsKey(bundleId))
-                return NotFound();
+            var bundle = Bundles.FirstOrDefault(b => b.Id == bundleId);
+            if (bundle == null) return NotFound();
 
-            BundleSystems[bundleId].Add(system);
-            return Ok(BundleSystems[bundleId]);
+            bundle.Systems ??= new List<SystemEntry>();
+            bundle.Systems.Add(new SystemEntry { Name = request.Name, Version = request.Version });
+
+            return Ok(new BundleScope
+            {
+                BundleId = bundle.Id,
+                BundleName = bundle.Name,
+                Systems = bundle.Systems
+            });
         }
 
         [HttpDelete("{bundleId}/{systemName}")]
-        public ActionResult DeleteSystem(int bundleId, string systemName)
+        public ActionResult<BundleScope> DeleteSystem(int bundleId, string systemName)
         {
-            if (!BundleSystems.ContainsKey(bundleId))
-                return NotFound();
+            var bundle = Bundles.FirstOrDefault(b => b.Id == bundleId);
+            if (bundle == null) return NotFound();
 
-            BundleSystems[bundleId].Remove(systemName);
-            return Ok(BundleSystems[bundleId]);
+            var system = bundle.Systems?.FirstOrDefault(s => s.Name == systemName);
+            if (system != null)
+                bundle.Systems!.Remove(system);
+
+            return Ok(new BundleScope
+            {
+                BundleId = bundle.Id,
+                BundleName = bundle.Name,
+                Systems = bundle.Systems ?? new List<SystemEntry>()
+            });
         }
     }
+
+    public static class ReleaseBundlesControllerAccessor
+    {
+        public static List<ReleaseBundle> Bundles { get; } = new()
+    {
+        new ReleaseBundle {
+            Id = 1,
+            Name = "Bundle A",
+            Status = "PLANNED",
+            Systems = new List<SystemEntry> {
+                new() { Name = "Task System", Version = "1.0" },
+                new() { Name = "System 2", Version = "2.3" },
+                new() { Name = "System 3", Version = "0.9-beta" }
+            }
+        },
+        new ReleaseBundle {
+            Id = 2,
+            Name = "Bundle B",
+            Status = "PLANNED",
+            Systems = new List<SystemEntry> {
+                new() { Name = "System X", Version = "5.4" },
+                new() { Name = "System Y", Version = "5.5" }
+            }
+        },
+        new ReleaseBundle {
+            Id = 3,
+            Name = "Bundle X",
+            Status = "RELEASED",
+            ReleaseDate = "2025-08-01",
+            Systems = new List<SystemEntry> {
+                new() { Name = "Legacy System", Version = "1999.1" }
+            }
+        },
+        new ReleaseBundle {
+            Id = 4,
+            Name = "Bundle Y",
+            Status = "RELEASED",
+            ReleaseDate = "2025-08-10",
+            Systems = new List<SystemEntry>() // tom liste
+        }
+    };
+    }
+
 }
