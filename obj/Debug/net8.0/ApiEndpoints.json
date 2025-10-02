@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "Bachelor_Backend.Controllers.ChecklistController",
+    "ContainingType": "ChecklistController",
     "Method": "GetChecklist",
     "RelativePath": "api/Checklist/{bundleId}",
     "HttpMethod": "GET",
