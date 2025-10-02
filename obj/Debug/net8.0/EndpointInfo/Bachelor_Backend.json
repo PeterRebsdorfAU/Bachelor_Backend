@@ -418,6 +418,39 @@
         },
         "additionalProperties": false
       },
+      "Checklist": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "isChecked": {
+            "type": "boolean"
+          },
+          "subItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChecklistItem"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChecklistItem": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "isChecked": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "ChecklistResponse": {
         "type": "object",
         "properties": {
@@ -429,10 +462,27 @@
             "type": "string",
             "nullable": true
           },
-          "checklist": {
+          "sections": {
             "type": "array",
             "items": {
-              "type": "string"
+              "$ref": "#/components/schemas/ChecklistSection"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChecklistSection": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Checklist"
             },
             "nullable": true
           }
