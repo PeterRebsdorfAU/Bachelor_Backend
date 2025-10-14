@@ -447,23 +447,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pete9\\.nuget\\packages\\": {},
+    "C:\\Users\\Peter\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pete9\\OneDrive\\Skrivebord\\bachelor\\Bachelor_Backend\\Bachelor_Backend\\Bachelor_Backend.csproj",
+      "projectUniqueName": "C:\\Users\\Peter\\OneDrive\\Billeder\\Skrivebord\\Bachelor_Backend\\Bachelor_Backend.csproj",
       "projectName": "Bachelor_Backend",
-      "projectPath": "C:\\Users\\pete9\\OneDrive\\Skrivebord\\bachelor\\Bachelor_Backend\\Bachelor_Backend\\Bachelor_Backend.csproj",
-      "packagesPath": "C:\\Users\\pete9\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pete9\\OneDrive\\Skrivebord\\bachelor\\Bachelor_Backend\\Bachelor_Backend\\obj\\",
+      "projectPath": "C:\\Users\\Peter\\OneDrive\\Billeder\\Skrivebord\\Bachelor_Backend\\Bachelor_Backend.csproj",
+      "packagesPath": "C:\\Users\\Peter\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Peter\\OneDrive\\Billeder\\Skrivebord\\Bachelor_Backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\pete9\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Peter\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -472,6 +472,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -489,8 +490,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -520,7 +520,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

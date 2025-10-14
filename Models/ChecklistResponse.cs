@@ -17,8 +17,6 @@
     {
         public string Text { get; set; } = string.Empty;
         public bool IsChecked { get; set; }
-
-        // Ny: hver item kan have sin egen under-checkliste
         public List<ChecklistItem> SubItems { get; set; } = new();
     }
 

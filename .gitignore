@@ -1,0 +1,22 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build output
+bin/
+obj/
+
+# NuGet
+*.nupkg
+packages/
+
+# Logs
+*.log
+
+# User-specific files
+*.userosscache
+*.sln.docstates
+
+# Other
+Thumbs.db

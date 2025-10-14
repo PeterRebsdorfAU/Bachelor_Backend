@@ -7,6 +7,6 @@
         public string Status { get; set; } = "";
         public string? ReleaseDate { get; set; }
         public List<string>? Customers { get; set; }
-        public List<SystemEntry>? Systems { get; set; }   // ændret fra string til SystemEntry
+        public List<SystemEntry>? Systems { get; set; } 
     }
 }
